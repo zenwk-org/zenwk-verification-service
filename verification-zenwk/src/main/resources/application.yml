@@ -1,19 +1,23 @@
-# Configuración de servidor (puerto, SSL):
+# Configuración de servidor (SSL):
 server:
   port: ${SERVER_PORT:8088}
   ssl:
     enabled: true
-    key-store: ${KEY_STORE:classpath:myserver.keystore}
+    key-store: ${KEY_STORE:classpath:http://localhost:6600/keystore/dev/myserver.keystore}
     key-store-password: ${SSL_KEY_STORE_PASSWORD:123456}
     key-password: ${SSL_KEY_PASSWORD:123456}
     key-alias: ${SSL_SERVER_ALIAS:myserver}
 
-# Configuración general de springboot: 
 spring:
   application:
     name: verification-zenwk
   config:
     import: ${SPRING_CONFIG_COMMON_APPLICATION:optional:configserver:http://localhost:8086}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:rabbitmq}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_DEFAULT_USER:guest}
+    password: ${RABBITMQ_DEFAULT_PASS:guest}
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
@@ -26,13 +30,7 @@ spring:
           starttls:
             enable: true
             required: true
-  rabbitmq:
-    host: ${RABBITMQ_HOST:rabbitmq}
-    port: ${RABBITMQ_PORT:5672}
-    username: ${RABBITMQ_DEFAULT_USER:guest}
-    password: ${RABBITMQ_DEFAULT_PASS:guest}
 
-# Configuración app custom (Data source hikari, poool de conexiones):
 app:
   datasource:
     hikari:
