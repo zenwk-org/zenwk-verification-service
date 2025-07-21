@@ -6,6 +6,8 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.alineumsoft.zenkw.verification.constants.Constants;
+
 /**
  * <p>
  * Configuración de rabbit </b>
@@ -28,7 +30,7 @@ public class RabbitMQConfig {
 	 */
 	@Bean
 	Queue emailQueue() {
-		return new Queue("emailQueue", true);
+		return new Queue(Constants.RABBITH_EMAIL_QUEUE, true);
 	}
 
 	/**

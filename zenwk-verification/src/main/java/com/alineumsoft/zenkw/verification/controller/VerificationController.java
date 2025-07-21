@@ -58,7 +58,7 @@ public class VerificationController {
 
 	/**
 	 * <p>
-	 * <b> CU003_Gestionar token de verificación. </b> lida un código de
+	 * <b> CU003_Gestionar token de verificación. </b> Valida un código de
 	 * verificación generado previamente.
 	 * </p>
 	 * 
