@@ -20,9 +20,15 @@ public enum VerificationExceptionEnum {
   /**
    * Verificación
    */
-  FUNC_VERIFICATION_TOKEN_EXPIRATION("FUNC_SEC_0001",
+  FUNC_VERIFICATION_TOKEN_EXPIRATION("FUNC_SEC_VERIFICATION_0001",
       "functional.verification.token.expiration"), FUNC_VERIFICATION_TOKEN_NOT_FOUND(
-          "FUNC_SEC_0002", "functional.verification.token.notfound");
+          "FUNC_SEC_VERIFICATION_0002",
+          "functional.verification.token.notfound"), FUNC_VERIFICATION_EMAIL_NOT_MATCH(
+              "FUNC_SEC_VERIFICATION_0003",
+              "functional.verification.token.email.notmatch"), FUNC_VERIFICATION_UUID_NOT_MATCH(
+                  "FUNC_SEC_VERIFICATION_0004",
+                  "functional.verification.token.uuid.notmatch"), FUNC_VERIFICATION_UUID_NOT_FOUND(
+                      "FUNC_SEC_VERIFICATION_0005", "functional.verification.token.uuid.notfound");
 
   /**
    * code

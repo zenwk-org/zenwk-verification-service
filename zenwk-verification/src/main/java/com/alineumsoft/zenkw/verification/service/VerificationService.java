@@ -1,6 +1,5 @@
 package com.alineumsoft.zenkw.verification.service;
 
-import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +20,7 @@ import com.alineumsoft.zenkw.verification.enums.VerificationExceptionEnum;
 import com.alineumsoft.zenkw.verification.repository.LogSecurityRepository;
 import com.alineumsoft.zenkw.verification.repository.TokenRepository;
 import com.alineumsoft.zenkw.verification.util.CodeGenerator;
+import com.alineumsoft.zenkw.verification.util.CryptoUtil;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -62,26 +62,33 @@ public class VerificationService extends ApiRestSecurityHelper {
    * @param userDetails
    * @return
    */
-  public void sendToken(@Validated TokenDTO dto, HttpServletRequest request) {
+  public TokenDTO sendToken(@Validated TokenDTO dto, HttpServletRequest request) {
     String username = dto.getEmail();
     LogSecurity logSecurity = initializeLog(request, username, getJson(dto), notBody,
         SecurityActionEnum.VERIFICATION_SEND_TOKEN.getCode());
     String email = dto.getEmail();
     try {
       String code = CodeGenerator.generateCode(Constants.TOKEN_CODE_ZISE);
+      String uuid = CodeGenerator.generateUUID();
       Token token = tokenRepository.findByEmail(email).orElse(null);
 
       if (token == null) {
-        token = new Token(code, dto.getEmail(), username);
+        token = new Token(CryptoUtil.encryptCode(code), dto.getEmail(), username,
+            CryptoUtil.encryptCode(uuid));
       } else {
-        token.setCode(code);
+        token.setCode(CryptoUtil.encryptCode(code));
+        token.setUuid(CryptoUtil.encryptCode(uuid));
       }
 
       token.setExpirationDate(LocalDateTime.now().plusMinutes(Constants.TOKEN_CODE_MINUTES));
-      tokenRepository.save(token);
+      // Se guarda el token o se actualiza. Un usuario siempre tendra un token asociado
+      // Si aumenta el alcance, gestionar mas de un token activos al mismo tiempo.
+      TokenDTO tokenDto = new TokenDTO(tokenRepository.save(token));
+
       EmailRequestDTO emailDTO = generateEmailToToken(email, code, username);
       rabbitTemplate.convertAndSend(Constants.RABBITH_EMAIL_QUEUE, emailDTO);
       saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRespository);
+      return tokenDto;
     } catch (RuntimeException e) {
       setLogSecurityError(e, logSecurity);
       throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRespository,
@@ -124,33 +131,81 @@ public class VerificationService extends ApiRestSecurityHelper {
    * </p>
    * 
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
-   * @param code
    * @param dto
    * @param userDetails
    * @return
    */
-  public boolean verifyToken(String code, TokenDTO dto, HttpServletRequest request) {
+  public boolean verifyToken(TokenDTO dto, HttpServletRequest request) {
     String username = dto.getEmail();
-    LogSecurity logSecurity = initializeLog(request, username, getJson(dto), notBody,
-        SecurityActionEnum.VERIFICATION_VALIDATE_TOKEN.getCode());
+    LogSecurity logSecurity = initializeLog(request, username, getJson(dto),
+        Boolean.class.getName(), SecurityActionEnum.VERIFICATION_VALIDATE_TOKEN.getCode());
     try {
-      // Consulta del token.
-      Token token = tokenRepository.findByEmailAndCode(dto.getEmail(), code)
-          .orElseThrow(() -> new EntityNotFoundException(
-              VerificationExceptionEnum.FUNC_VERIFICATION_TOKEN_NOT_FOUND.getCodeMessage()));
-      // Validacion expiracion del token.
-      if (token.getExpirationDate().isBefore(LocalDateTime.now())) {
-        // No se elimina por defecto ya esta deshabilitado.
-        throw new DateTimeException(
-            VerificationExceptionEnum.FUNC_VERIFICATION_TOKEN_EXPIRATION.getCodeMessage());
+      Token token = getToken(dto);
+      String messageError = validateToken(dto, token);
+      // Validacion del token
+      if (!messageError.isEmpty()) {
+        throw new IllegalArgumentException(messageError);
       }
-      tokenRepository.delete(token);
+      // Si todo es exitoso se elimina el token
+      // tokenRepository.delete(token);
       saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRespository);
       return true;
     } catch (RuntimeException e) {
       setLogSecurityError(e, logSecurity);
       throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRespository,
           logSecurity);
+    }
+
+  }
+
+
+  /**
+   * 
+   * <p>
+   * <b> CU003_Gestionar token de verificación. </b> Validacion del token
+   * </p>
+   * 
+   * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
+   * @param dto
+   * @param token
+   * @return
+   */
+  private String validateToken(TokenDTO dto, Token token) {
+    String messageError = "";
+    if (!token.getEmail().equals(dto.getEmail())) {
+      messageError = VerificationExceptionEnum.FUNC_VERIFICATION_EMAIL_NOT_MATCH.getCodeMessage();
+    } else if (token.getExpirationDate().isBefore(LocalDateTime.now())) {
+      messageError = VerificationExceptionEnum.FUNC_VERIFICATION_TOKEN_EXPIRATION.getCodeMessage();
+    } else if (!token.getUuid().equals(dto.getUuid())) {
+      messageError = VerificationExceptionEnum.FUNC_VERIFICATION_UUID_NOT_MATCH.getCodeMessage();
+    }
+    return messageError;
+  }
+
+  /**
+   * <p>
+   * <b> U003_Gestionar token de verificación. </b> Recupera el token con todos sus datos
+   * </p>
+   * 
+   * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
+   * @param dto
+   * @return
+   */
+  private Token getToken(TokenDTO dto) {
+    if (dto.getCode() != null && !dto.getCode().isEmpty()) {
+      return tokenRepository.findByCode(dto.getCode())
+          .orElseThrow(() -> new EntityNotFoundException(
+              VerificationExceptionEnum.FUNC_VERIFICATION_TOKEN_NOT_FOUND.getCodeMessage()));
+    }
+    if (dto.getUuid() != null && !dto.getUuid().isEmpty()) {
+      return tokenRepository.findByUuid(dto.getUuid())
+          .orElseThrow(() -> new EntityNotFoundException(
+              VerificationExceptionEnum.FUNC_VERIFICATION_UUID_NOT_FOUND.getCodeMessage()));
+
+    } else {
+      return tokenRepository.findByEmail(dto.getEmail())
+          .orElseThrow(() -> new EntityNotFoundException(
+              VerificationExceptionEnum.FUNC_VERIFICATION_TOKEN_NOT_FOUND.getCodeMessage()));
     }
 
   }

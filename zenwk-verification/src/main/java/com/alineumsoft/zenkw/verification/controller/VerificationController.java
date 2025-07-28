@@ -3,7 +3,6 @@ package com.alineumsoft.zenkw.verification.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -50,11 +49,10 @@ public class VerificationController {
    * @return
    */
   @PostMapping("/send")
-  public ResponseEntity<Void> sendToken(HttpServletRequest request,
+  public ResponseEntity<TokenDTO> sendToken(HttpServletRequest request,
       @Validated @RequestBody TokenDTO dto) {
     // Enviar solicitud de correo a la cola de RabbitMQ
-    verificationService.sendToken(dto, request);
-    return ResponseEntity.noContent().build();
+    return ResponseEntity.ok(verificationService.sendToken(dto, request));
   }
 
   /**
@@ -65,14 +63,13 @@ public class VerificationController {
    * 
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
-   * @param code
    * @param dto
    * @param userDetails
    * @return
    */
-  @PostMapping("/validate/{code}")
-  public ResponseEntity<Boolean> verifyToken(HttpServletRequest request, @PathVariable String code,
+  @PostMapping("/validate")
+  public ResponseEntity<Boolean> verifyToken(HttpServletRequest request,
       @Validated @RequestBody TokenDTO dto) {
-    return ResponseEntity.ok(verificationService.verifyToken(code, dto, request));
+    return ResponseEntity.ok(verificationService.verifyToken(dto, request));
   }
 }
