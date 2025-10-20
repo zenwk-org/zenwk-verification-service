@@ -1,4 +1,4 @@
-package com.alineumsoft.zenkw.verification.util;
+package com.alineumsoft.zenkw.verification.common.util;
 
 import java.security.SecureRandom;
 import java.util.Base64;
@@ -15,14 +15,16 @@ import java.util.UUID;
  */
 public class CodeGenerator {
   /**
-   * random
+   * random java.util.secureRandom
    */
-  private static SecureRandom random = new SecureRandom();
+  private static final SecureRandom random = new SecureRandom();
+
 
   /**
    * 
    * <p>
-   * <b> CU003_Gestionar token de verificación. </b> Generador.
+   * <b> CU003_Gestionar token de verificación. </b> Generador de token con criptografía mas fuerte
+   * que la usada en this.generateUUID().
    * </p>
    * 
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
@@ -38,7 +40,8 @@ public class CodeGenerator {
   /**
    * 
    * <p>
-   * <b> CU001_Gestionar token de verificación </b> Genera UUID
+   * <b> CU001_Gestionar token de verificación </b> Genera UUID aleatorio con criptografía debil
+   * para ser utilizado en url con parmetros solo accedidas desde correo le usuario
    * </p>
    * 
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>

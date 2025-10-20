@@ -22,4 +22,7 @@ public final class GeneralConstants {
   public final static String ANOTATION_ENTITY_EXISTS = "existsById";
   public final static String TIMER_SEG = "(s)";
   public static final String UTF8 = "UTF8";
+
+  public static final int TOKEN_CSRF_CODE_MINUTES = 120;
+  public static final int TOKEN_CSRF_CODE_ZISE = 128;
 }

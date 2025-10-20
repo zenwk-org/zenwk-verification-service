@@ -6,22 +6,19 @@ import java.util.Map;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import com.alineumsoft.zenkw.verification.common.dto.TokenDTO;
 import com.alineumsoft.zenkw.verification.common.exception.FunctionalException;
 import com.alineumsoft.zenkw.verification.common.helper.ApiRestSecurityHelper;
+import com.alineumsoft.zenkw.verification.common.util.CodeGenerator;
 import com.alineumsoft.zenkw.verification.constants.Constants;
 import com.alineumsoft.zenkw.verification.dto.EmailRequestDTO;
-import com.alineumsoft.zenkw.verification.dto.TokenDTO;
 import com.alineumsoft.zenkw.verification.entity.LogSecurity;
-import com.alineumsoft.zenkw.verification.entity.Person;
 import com.alineumsoft.zenkw.verification.entity.Token;
-import com.alineumsoft.zenkw.verification.entity.User;
 import com.alineumsoft.zenkw.verification.enums.MessagesVerificationEnum;
 import com.alineumsoft.zenkw.verification.enums.SecurityActionEnum;
 import com.alineumsoft.zenkw.verification.enums.VerificationExceptionEnum;
 import com.alineumsoft.zenkw.verification.repository.LogSecurityRepository;
 import com.alineumsoft.zenkw.verification.repository.TokenRepository;
-import com.alineumsoft.zenkw.verification.repository.UserRepository;
-import com.alineumsoft.zenkw.verification.util.CodeGenerator;
 import com.alineumsoft.zenkw.verification.util.CryptoUtil;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -42,7 +39,7 @@ public class VerificationService extends ApiRestSecurityHelper {
   /**
    * Repositorio para log persistible de modulo
    */
-  private final LogSecurityRepository logSecurityUserRespository;
+  private final LogSecurityRepository logSecurityUserRepo;
   /**
    * tokenRepository
    */
@@ -51,11 +48,12 @@ public class VerificationService extends ApiRestSecurityHelper {
    * rabbitTemplate
    */
   private final AmqpTemplate rabbitTemplate;
-
   /**
-   * Repositorio para la gestion de la entidad el usuario.
+   * Util user service
    */
-  private final UserRepository userRepository;
+  private final UserUtilService userUtilService;
+
+
 
   /**
    * <p>
@@ -76,6 +74,7 @@ public class VerificationService extends ApiRestSecurityHelper {
 
     try {
       Token token = tokenRepository.findByEmail(dto.getEmail()).orElse(null);
+      // Se elimina token si este ya existe
       if (token != null) {
         tokenRepository.delete(token);
       }
@@ -88,11 +87,11 @@ public class VerificationService extends ApiRestSecurityHelper {
           generateTemplateRegisterFlow(tokenDTO.getEmail(), tokenDTO.getCode(), username);
 
       rabbitTemplate.convertAndSend(Constants.RABBITH_EMAIL_QUEUE, emailDTO);
-      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRespository);
+      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRepo);
       return tokenDTO;
     } catch (RuntimeException e) {
       setLogSecurityError(e, logSecurity);
-      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRespository,
+      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRepo,
           logSecurity);
     }
 
@@ -115,8 +114,6 @@ public class VerificationService extends ApiRestSecurityHelper {
     dto.setUuid(CodeGenerator.generateUUID());
     dto.setHashUuid(CryptoUtil.encryptCode(dto.getUuid()));
     dto.setExpirationDate(LocalDateTime.now().plusMinutes(Constants.TOKEN_CODE_MINUTES));
-
-
     return dto;
   }
 
@@ -188,11 +185,11 @@ public class VerificationService extends ApiRestSecurityHelper {
       if (!messageError.isEmpty()) {
         throw new IllegalArgumentException(messageError);
       }
-      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRespository);
+      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRepo);
       return true;
     } catch (RuntimeException e) {
       setLogSecurityError(e, logSecurity);
-      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRespository,
+      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRepo,
           logSecurity);
     }
 
@@ -254,7 +251,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * @return
    */
   public boolean resetPassword(HttpServletRequest request, TokenDTO dto) {
-    String username = getNameUserFromEmail(dto.getEmail());
+    String username = userUtilService.getNameUserFromEmail(dto.getEmail());
     LogSecurity logSecurity = initializeLog(request, username, notBody, Boolean.class.getName(),
         SecurityActionEnum.VERIFICATION_SEND_TOKEN.getCode());
     String urlParam = null;
@@ -280,41 +277,17 @@ public class VerificationService extends ApiRestSecurityHelper {
           generateTemplateToResetPassword(tokenDTO.getEmail(), url, username);
 
       rabbitTemplate.convertAndSend(Constants.RABBITH_EMAIL_QUEUE, emailDTO);
-      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRespository);
+      saveSuccessLog(HttpStatus.OK.value(), logSecurity, logSecurityUserRepo);
       return true;
     } catch (RuntimeException e) {
       setLogSecurityError(e, logSecurity);
-      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRespository,
+      throw new FunctionalException(e.getMessage(), e.getCause(), logSecurityUserRepo,
           logSecurity);
 
     }
   }
 
-  /**
-   * <p>
-   * <b> CU004_Restablecer contraseña </b> Recupera el username desde el email.
-   * </p>
-   * 
-   * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
-   * @param email
-   * @return
-   */
-  public String getNameUserFromEmail(String email) {
-    try {
-      User user =
-          userRepository.findByEmail(email).orElseThrow(() -> new EntityNotFoundException());
-      Person person = user.getPerson();
 
-      if (person != null && person.getFirstName() != null && person.getLastName() != null) {
-        return person.getFirstName().concat(" ").concat(person.getLastName());
-
-      }
-
-      return user.getUsername();
-    } catch (RuntimeException e) {
-      return email;
-    }
-  }
 
   /**
    * <p>

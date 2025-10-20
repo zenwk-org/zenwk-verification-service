@@ -1,4 +1,4 @@
-package com.alineumsoft.zenkw.verification.entity;
+package com.alineumsoft.zenkw.verification.common.entity;
 
 import java.time.LocalDateTime;
 import com.alineumsoft.zenkw.verification.common.dto.TokenDTO;
@@ -13,75 +13,79 @@ import lombok.NoArgsConstructor;
 
 /**
  * <p>
- * Tabla para alamcenar los tokens de verificación.
+ * Tabla que almacena los tokens de verficación para proteger la autentiación de ataques crsf
  * </p>
  * 
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
- * @project verification-zenwk
- * @class Token
+ * @project zenwk-verification
+ * @class CsrfToken
  */
-@Entity
 @Data
-@Table(name = "sec_token")
+@Entity
 @NoArgsConstructor
-public class Token {
+@Table(name = "sec_csrf_token")
+public class CsrfToken {
   /**
-   * Id
+   * id
    */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "sectokid")
+  @Column(name = "seccsrtokid")
   private Long id;
   /**
-   * Código
+   * Codigo del token
    */
-  @Column(name = "sectokcode")
+  @Column(name = "seccsrtokcode")
   private String code;
   /**
-   * UUID
+   * Correo del usuario
    */
-  @Column(name = "sectokuuid")
-  private String uuid;
-  /**
-   * Email
-   */
-  @Column(name = "sectokemail")
+  @Column(name = "seccsrtokemail")
   private String email;
   /**
-   * Fecha expiración token
+   * Estado revocación
+   */
+  @Column(name = "seccsrtokrevoked")
+  private boolean revoked = false;
+
+  @Column(name = "seccsrtokuseragent")
+  private String userAgent;
+  /**
+   * Fecha de creación
+   */
+  @Column(name = "seccsrtokcreationdate")
+  private LocalDateTime creationDate;
+  /**
+   * Fecha de expiración
    */
   @Column(name = "sectoexpirationdate")
   private LocalDateTime expirationDate;
   /**
    * Usuario de creación
    */
-  @Column(name = "sectokcreateuser")
+  @Column(name = "seccsrtokcreateuser")
   private String createUser;
-  /**
-   * Fecha de creación
-   */
-  @Column(name = "sectokcreationdate")
-  private LocalDateTime creationDate;
-
 
   /**
    * 
    * <p>
-   * <b> CU003_Gestionar token de verificación.</b> Constructor.
+   * <b> CU00X_Gestionar protección contra ataques CSRF </b> Constructor
    * </p>
    * 
    * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param username
+   * @param userAgent
    */
-  public Token(TokenDTO dto, String username) {
+  public CsrfToken(TokenDTO dto, String username, String userAgent) {
     this.email = dto.getEmail();
-    this.code = dto.getHashCode();
-    this.uuid = dto.getHashUuid();
+    this.code = dto.getCode();
     this.expirationDate = dto.getExpirationDate();
-
     this.createUser = username;
     this.creationDate = LocalDateTime.now();
+    this.userAgent = userAgent;
 
   }
+
+
 }

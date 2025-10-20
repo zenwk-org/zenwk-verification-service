@@ -8,6 +8,9 @@ server:
     key-password: ${SSL_KEY_PASSWORD:123456}
     key-alias: ${SSL_SERVER_ALIAS:zenwk-local}
 
+cors:
+  allowed-origins: ${CORS_AUTH_ALLOWED_ORIGINS}
+
 spring:
   application:
     name: verification-zenwk

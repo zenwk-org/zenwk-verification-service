@@ -1,4 +1,4 @@
-package com.alineumsoft.zenkw.verification.validation;
+package com.alineumsoft.zenkw.verification.common.validation;
 
 import java.util.regex.Pattern;
 import org.springframework.beans.factory.annotation.Value;

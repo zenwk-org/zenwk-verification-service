@@ -1,10 +1,10 @@
-package com.alineumsoft.zenkw.verification.dto;
+package com.alineumsoft.zenkw.verification.common.dto;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import com.alineumsoft.zenkw.verification.common.constants.RegexConstants;
+import com.alineumsoft.zenkw.verification.common.validation.ValidUrlOrEmpty;
 import com.alineumsoft.zenkw.verification.constants.DtoValidationKeys;
-import com.alineumsoft.zenkw.verification.validation.ValidUrlOrEmpty;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.validation.constraints.NotNull;
@@ -48,6 +48,7 @@ public class TokenDTO implements Serializable {
   /**
    * UUID asociado al objecto.
    */
+  @JsonInclude(JsonInclude.Include.NON_NULL)
   private String uuid;
   /**
    * Hash del token

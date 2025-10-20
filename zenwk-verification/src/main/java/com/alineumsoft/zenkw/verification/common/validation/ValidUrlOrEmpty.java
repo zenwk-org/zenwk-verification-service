@@ -1,4 +1,4 @@
-package com.alineumsoft.zenkw.verification.validation;
+package com.alineumsoft.zenkw.verification.common.validation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

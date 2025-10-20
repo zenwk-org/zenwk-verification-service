@@ -13,29 +13,34 @@ import lombok.Getter;
  */
 @Getter
 public enum SecurityActionEnum {
-    /**
-	 * Verificación de token
-	 */
-    VERIFICATION_SEND_TOKEN("VERIFICATION.SEND_TOKEN"),
-    VERIFICATION_VALIDATE_TOKEN("VERIFICATION.VARIFY_TOKEN");
-	
-	
-	
-	/**
-	 * code
-	 */
-	private final String code;
+  /**
+   * Verificación de token
+   */
+  VERIFICATION_SEND_TOKEN("VERIFICATION.SEND_TOKEN"), VERIFICATION_VALIDATE_TOKEN(
+      "VERIFICATION.VARIFY_TOKEN"),
+  /**
+   * Token CSRF
+   */
+  VERIFICATION_SEND_TOKEN_CSRF("VERIFICATION.SEND_TOKEN_CSRF"), VERIFICATION_VALIDATE_TOKEN_CSRF(
+      "VERIFICATION.VARIFY_TOKEN_CSRF");
 
-	/**
-	 * <p>
-	 * <b> Constructor </b>
-	 * </p>
-	 * 
-	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
-	 * @param code
-	 */
-	SecurityActionEnum(String code) {
-		this.code = code;
-	}
+
+
+  /**
+   * code
+   */
+  private final String code;
+
+  /**
+   * <p>
+   * <b> Constructor </b>
+   * </p>
+   * 
+   * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
+   * @param code
+   */
+  SecurityActionEnum(String code) {
+    this.code = code;
+  }
 
 }

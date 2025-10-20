@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.alineumsoft.zenkw.verification.dto.TokenDTO;
+import com.alineumsoft.zenkw.verification.common.dto.TokenDTO;
 import com.alineumsoft.zenkw.verification.service.VerificationService;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -26,9 +26,9 @@ import lombok.extern.slf4j.Slf4j;
  */
 @RestController
 @RequestMapping("/api/verification/token")
-@CrossOrigin(origins = "*")
 @Slf4j
 @RequiredArgsConstructor
+@CrossOrigin(origins = "${cors.allowed-origins}", allowCredentials = "true")
 public class VerificationController {
 
   /**
