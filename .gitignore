@@ -127,7 +127,7 @@ pnpm-lock.yaml
 
 # Credenciales o configuraciones locales
 local.properties
-application-*.yml
+# application-*.yml
 application-*.properties
 config/
 tmp/
