@@ -9,7 +9,7 @@ import jakarta.validation.ConstraintValidatorContext;
 
 /**
  * Validador
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project zenwk-verification
  * @class UrlOrEmptyValidator
@@ -27,11 +27,11 @@ public class UrlOrEmptyValidator implements ConstraintValidator<ValidUrlOrEmpty,
   private Pattern pattern;
 
   /**
-   * 
+   *
    * <p>
    * <b> @PostConstruct </b>
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    */
   @PostConstruct

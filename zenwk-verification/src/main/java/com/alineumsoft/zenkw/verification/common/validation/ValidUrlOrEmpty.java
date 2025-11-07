@@ -10,7 +10,7 @@ import jakarta.validation.Payload;
 
 /**
  * Interfaz
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project zenwk-verification
  * @class ValidUrlOrEmpty

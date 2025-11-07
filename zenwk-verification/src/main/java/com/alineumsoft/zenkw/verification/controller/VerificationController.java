@@ -14,12 +14,12 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * 
+ *
  * <p>
  * Controlador para la gestión de tokens de verificación de usuario. Permite enviar y validar
  * códigos de verificación vía correo electrónico.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class EmailController
@@ -41,7 +41,7 @@ public class VerificationController {
    * <b> CU003_Gestionar token de verificación. </b> Envía un token de verificación a la cuenta de
    * correo del usuario.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @param dto
@@ -60,7 +60,7 @@ public class VerificationController {
    * <b> CU003_Gestionar token de verificación. </b> Valida un código de verificación generado
    * previamente.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @param dto
@@ -74,12 +74,12 @@ public class VerificationController {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> CU004_Restablecer contraseña </b> Envía la notificación al correo del usuario con link de
    * acceso para el cambio de contraseña.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @param email

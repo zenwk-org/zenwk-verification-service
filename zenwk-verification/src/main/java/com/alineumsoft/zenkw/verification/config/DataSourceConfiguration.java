@@ -6,7 +6,6 @@ import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-
 import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration(proxyBeanMethods = false)
@@ -15,7 +14,7 @@ public class DataSourceConfiguration {
 	 * <p>
 	 * <b> CU001_Seguridad_Creacion_Usuario </b> Clase configuracion de datasource
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */
@@ -30,7 +29,7 @@ public class DataSourceConfiguration {
 	 * <p>
 	 * <b> CU001_Seguridad_Creacion_Usuario </b> Configuracion pool de conexiones
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */

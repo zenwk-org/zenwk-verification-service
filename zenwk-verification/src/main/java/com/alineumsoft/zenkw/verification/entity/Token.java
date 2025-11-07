@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * <p>
  * Tabla para alamcenar los tokens de verificación.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class Token
@@ -65,11 +65,11 @@ public class Token {
 
 
   /**
-   * 
+   *
    * <p>
    * <b> CU003_Gestionar token de verificación.</b> Constructor.
    * </p>
-   * 
+   *
    * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param username

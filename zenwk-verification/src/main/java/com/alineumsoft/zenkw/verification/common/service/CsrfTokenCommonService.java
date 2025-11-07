@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 
 /**
  * Service común para gestión del token CSRF
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project zenwk-verification
  * @class CsrfTokenService
@@ -30,11 +30,11 @@ public class CsrfTokenCommonService extends ApiRestSecurityHelper {
   private final CsrfTokenRepository csrfTokenRepo;
 
   /**
-   * 
+   *
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Genera el token csrf
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @return
@@ -47,11 +47,11 @@ public class CsrfTokenCommonService extends ApiRestSecurityHelper {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Valida el token csrf
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @return
@@ -70,11 +70,11 @@ public class CsrfTokenCommonService extends ApiRestSecurityHelper {
 
 
   /**
-   * 
+   *
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Validacion del token
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param token
@@ -95,7 +95,7 @@ public class CsrfTokenCommonService extends ApiRestSecurityHelper {
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Genera el dto con los datos del token
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @return

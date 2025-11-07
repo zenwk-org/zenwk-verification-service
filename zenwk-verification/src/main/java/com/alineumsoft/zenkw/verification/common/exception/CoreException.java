@@ -5,7 +5,6 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-
 import lombok.extern.slf4j.Slf4j;
 
 /*
@@ -19,12 +18,12 @@ public abstract class CoreException extends RuntimeException {
 	static final long serialVersionUID = 1L;
 	// Metodo comun por convencion en cualquier tabla de logs
 	private static final String METHOD_MESSAGE_ERROR = "setErrorMessage";
-	
+
 	/**
 	 * <p>
 	 * <b> General </b> CoreException
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
 	 * @param <T>
 	 * @param message
@@ -42,7 +41,7 @@ public abstract class CoreException extends RuntimeException {
 	 * <p>
 	 * <b> General </b> Periste la excepcion
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param <T>
 	 * @param repository

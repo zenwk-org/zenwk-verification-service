@@ -3,7 +3,6 @@ package com.alineumsoft.zenkw.verification.common.util;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
-
 import com.alineumsoft.zenkw.verification.common.message.component.MessageSourceAccessorComponent;
 import com.alineumsoft.zenkw.verification.constants.DtoValidationKeys;
 
@@ -19,7 +18,7 @@ import com.alineumsoft.zenkw.verification.constants.DtoValidationKeys;
  * operaciones comunes sobre estos tipos de datos para asegurar consistencia en
  * la manipulación de fechas en el proyecto.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project security-zenwk
  * @class LocalDateTimeUtil
@@ -35,7 +34,7 @@ public final class LocalDateTimeUtil {
 	 * <b> General </b> Convierte una cadena a un LocalDateTime usando el formato
 	 * ISO-8601
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param dateString
 	 * @return
@@ -58,7 +57,7 @@ public final class LocalDateTimeUtil {
 	 * ISO-8601
 	 * </p>
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param date
 	 * @return

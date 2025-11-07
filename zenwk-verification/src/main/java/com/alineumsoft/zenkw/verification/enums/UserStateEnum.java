@@ -7,7 +7,7 @@ import lombok.Getter;
  * <p>
  * Enum con los estados que puede tener un usuario.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project SecurityUser
  * @class UserStateEnum
@@ -34,7 +34,7 @@ public enum UserStateEnum {
    * <p>
    * Obtiene la descripción del mensaje usando la clave desde messages.properties.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param messageSource
    * @return

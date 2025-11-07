@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
  * <p>
  * DTO para la gestión de la solicitud de token de verificación.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class TokenDTO

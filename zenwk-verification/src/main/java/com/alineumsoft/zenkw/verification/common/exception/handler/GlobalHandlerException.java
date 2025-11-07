@@ -37,7 +37,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> CommonException: </b> Manejador general
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param e
    * @return
@@ -53,7 +53,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> CommonException: </b> Manejador para exceptiones tecnicas
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param e
    * @return
@@ -69,7 +69,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> CommonException: </b> Manejador para exceptiones funcionales
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param e
    * @return
@@ -86,7 +86,7 @@ public class GlobalHandlerException {
    * <b> Validate: </b> Recupera el mensaje de error en la validacion encontrado en el
    * dto/rquestBody de la solicitud
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param e
    * @return
@@ -105,7 +105,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> Util: </b> Crea una nueva instancia para ErrorResponse
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param e
    * @return
@@ -125,7 +125,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> Util: </b> Obtiene codigo de la excepcion si existe
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param formattedString
    * @return
@@ -148,7 +148,7 @@ public class GlobalHandlerException {
    * <p>
    * <b> Util </b> Limpia el el codigo del mensaje
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param mensaje
    * @return

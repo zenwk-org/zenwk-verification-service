@@ -30,7 +30,7 @@ public final class CryptoUtil {
    * <p>
    * <b> CryptoUtil: </b> Encriptacion para los codigos del token.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param rawPassword
    * @return
@@ -43,7 +43,7 @@ public final class CryptoUtil {
    * <p>
    * <b> CryptoUtil: </b> Verifica si un codigo token, uuid coincide con su hash encriptado.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param rawPassword
    * @param encodePassword
@@ -54,11 +54,11 @@ public final class CryptoUtil {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> CryptoUtil: </b> Encripta un texto usando AES
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param rawText
    * @param secretKey
@@ -77,7 +77,7 @@ public final class CryptoUtil {
    * <p>
    * <b> CryptoUtil: </b> Desencripta un texto cifrado en AES
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param encryptedText
    * @param secretKey
@@ -97,7 +97,7 @@ public final class CryptoUtil {
    * <p>
    * <b> CryptoUtil: </b> Genera una clave secreta AES de 16 bytes
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    * @throws Exception

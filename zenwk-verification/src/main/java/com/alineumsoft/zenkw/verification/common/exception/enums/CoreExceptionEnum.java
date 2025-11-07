@@ -6,7 +6,7 @@ import lombok.Getter;
 
 /**
  * <b>Enum que define las excepciones tecnicas y funcionales a nivel general del sistema.</b>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project SecurityUser
  * @class GeneralCoreExceptionEnum
@@ -67,7 +67,7 @@ public enum CoreExceptionEnum {
    * <b> General core exception: </b> Obtiene un mensaje formateado basado en una clave de mensaje y
    * parámetros opcionales.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param params
    * @return
@@ -82,11 +82,11 @@ public enum CoreExceptionEnum {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> General core exception: </b> Descripción con codigo de la excepcion generada
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    */
@@ -95,11 +95,11 @@ public enum CoreExceptionEnum {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> General core exception: </b> Descripción con codigo de la excepcion generada con parametros
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    */

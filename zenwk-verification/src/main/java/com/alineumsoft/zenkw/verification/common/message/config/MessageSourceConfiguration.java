@@ -1,14 +1,12 @@
 package com.alineumsoft.zenkw.verification.common.message.config;
 
 import java.util.Locale;
-
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
-
 import com.alineumsoft.zenkw.verification.common.constants.GeneralConstants;
 
 /**
@@ -28,7 +26,7 @@ public class MessageSourceConfiguration {
 	 * <b> Util </b> Se configura el messageSource para que soporte la
 	 * internacionalizacion
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */
@@ -46,7 +44,7 @@ public class MessageSourceConfiguration {
 	 * <b> Util </b> Carga el lenguaje por defecto indicado en el archivo de
 	 * configuracion en caso que no este carga el lengaje por defecto ES
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */

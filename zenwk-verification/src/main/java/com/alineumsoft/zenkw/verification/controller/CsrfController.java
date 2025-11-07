@@ -23,7 +23,7 @@ import lombok.extern.slf4j.Slf4j;
  * para las solicitudes, se inyectara esta cookie atumáticamente para las apis no publicas, y la
  * validación será automarica por el uso directo de springsecurity en el filtro de validación CSRF
  * !!!!
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project zenwk-verification
  * @class CsrfController
@@ -50,7 +50,7 @@ public class CsrfController {
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Genera el token csrf
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param request
@@ -73,7 +73,7 @@ public class CsrfController {
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Valida el token csrf
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param request

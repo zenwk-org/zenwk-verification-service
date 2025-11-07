@@ -1,12 +1,10 @@
 package com.alineumsoft.zenkw.verification.common.component;
 
 import java.io.IOException;
-
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,7 +16,7 @@ import lombok.extern.slf4j.Slf4j;
  * Filtro para la medicion de la solicitud antes del filtro
  * JwtAuthenticationFilter. Se establece orden como primero.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project security-zenwk
  * @class RequestTimingFilter
@@ -53,7 +51,7 @@ public class RequestTimingFilter extends OncePerRequestFilter {
 	 * <p>
 	 * <b> General </b> Obtener timepo incial
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */
@@ -65,7 +63,7 @@ public class RequestTimingFilter extends OncePerRequestFilter {
 	 * <p>
 	 * <b> General </b> Remueve el hilo actual
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 */
 	public static void destroyStartTime() {

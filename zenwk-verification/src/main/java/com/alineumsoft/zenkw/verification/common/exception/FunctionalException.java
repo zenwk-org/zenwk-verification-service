@@ -14,7 +14,7 @@ public class FunctionalException extends CoreException {
 	 * <p>
 	 * <b> General </b> FunctionalException
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
 	 * @param <T>
 	 * @param message

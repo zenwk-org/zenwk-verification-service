@@ -5,13 +5,12 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import com.alineumsoft.zenkw.verification.constants.Constants;
 
 /**
  * <p>
  * Configuración de rabbit </b>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class RabbitMQConfig
@@ -19,12 +18,12 @@ import com.alineumsoft.zenkw.verification.constants.Constants;
 @Configuration
 public class RabbitMQConfig {
 	/**
-	 * 
+	 *
 	 * <p>
 	 * <b> CU001_Seguridad_Creacion_Usuario </b> Creación para la cola de los
 	 * mensajes
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */
@@ -37,7 +36,7 @@ public class RabbitMQConfig {
 	 * <p>
 	 * <b> CU001_Seguridad_Creacion_Usuario </b> Serializacion en JSON
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @return
 	 */

@@ -7,7 +7,7 @@ package com.alineumsoft.zenkw.verification.constants;
  * utilizan en archivos de internacionalización (i18n) para proporcionar mensajes de error
  * personalizados en las validaciones.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class DtoValidationKeys

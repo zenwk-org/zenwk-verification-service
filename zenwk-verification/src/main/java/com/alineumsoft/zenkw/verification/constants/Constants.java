@@ -4,7 +4,7 @@ package com.alineumsoft.zenkw.verification.constants;
  * <p>
  * Constes usadas en el módulo de verificación del sistema.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class Constants

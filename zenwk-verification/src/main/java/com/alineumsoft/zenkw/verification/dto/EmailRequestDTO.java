@@ -2,7 +2,6 @@ package com.alineumsoft.zenkw.verification.dto;
 
 import java.io.Serializable;
 import java.util.Map;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
  * <p>
  * DTO que contiene los datos del correo
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class EmailRequestDTO

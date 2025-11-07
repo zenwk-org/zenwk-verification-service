@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
  * <p>
  * Servicio para el api encargado de la gestión del token de verificación de usuario.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class VerificationService
@@ -60,7 +60,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <b> CU003_Gestionar token de verificación. </b> Envía un token de verificación a la cuenta de
    * correo del usuario.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @param dto
@@ -101,7 +101,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <p>
    * <b> CU003_Gestionar token de verificación </b> Genera el dto con los datos del token
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @return
@@ -122,7 +122,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <b> CU003_Gestionar token de verificación </b> Genera lo datos para el email con el código de
    * verificación.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @param code
@@ -145,12 +145,12 @@ public class VerificationService extends ApiRestSecurityHelper {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> CU001_CU003_Gestionar token de verificación </b> Setea los datos de la planilla que se
    * notificará por correo.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @param dto
@@ -168,7 +168,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <b> CU003_Gestionar token de verificación. </b> valida un código de verificación generado
    * previamente.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param userDetails
@@ -197,11 +197,11 @@ public class VerificationService extends ApiRestSecurityHelper {
 
 
   /**
-   * 
+   *
    * <p>
    * <b> CU003_Gestionar token de verificación. </b> Validacion del token
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param token
@@ -227,7 +227,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <p>
    * <b>CU003_Gestionar token de verificación. </b> Recupera el token con todos sus datos
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @return
@@ -239,12 +239,12 @@ public class VerificationService extends ApiRestSecurityHelper {
   }
 
   /**
-   * 
+   *
    * <p>
    * <b> CU004_Restablecer contraseña </b> Envía la notificación al correo del usuario con link de
    * acceso para el cambio de contraseña.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @param dto
@@ -294,7 +294,7 @@ public class VerificationService extends ApiRestSecurityHelper {
    * <b> CU004_Restablecer contraseña </b> Genera lo datos para el email con el enlace para
    * restablecer la contraseña
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @param code

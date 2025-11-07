@@ -10,7 +10,7 @@ import lombok.Getter;
  * Enum para los mensajes a mostrar cuando se generan excepciones funcionales predefinidas en el
  * sistema.
  * <p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class ErrorCodeException
@@ -83,7 +83,7 @@ public enum VerificationExceptionEnum {
    * <p>
    * <b> General User Exception. </b> Recupera el mensaje incluyendo el codigo
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    */
@@ -95,7 +95,7 @@ public enum VerificationExceptionEnum {
    * <p>
    * <b> General User Exception. </b> Recupera el mensaje incluyendo el codigo con parametros
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    */

@@ -2,11 +2,9 @@ package com.alineumsoft.zenkw.verification.common.helper;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
-
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
-
 import com.alineumsoft.zenkw.verification.common.constants.AuthConfigConstants;
 import com.alineumsoft.zenkw.verification.common.constants.CommonMessageConstants;
 import com.alineumsoft.zenkw.verification.common.constants.GeneralConstants;
@@ -15,7 +13,6 @@ import com.alineumsoft.zenkw.verification.entity.LogSecurity;
 import com.alineumsoft.zenkw.verification.enums.HttpMethodResourceEnum;
 import com.alineumsoft.zenkw.verification.enums.SecurityActionEnum;
 import com.alineumsoft.zenkw.verification.repository.LogSecurityRepository;
-
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
@@ -35,7 +32,7 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 	 * <b> General </b> Fija el valor para los atributos: creationDate, userCreation
 	 * y url
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param request
 	 * @param response
@@ -67,7 +64,7 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 	 * <b> CU001_Seguridad_Creación_Usuario </b> Actualizacion generica en caso de
 	 * error
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param e
 	 * @param logSecUser
@@ -88,7 +85,7 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 	 * <b> CU001_Seguridad_Creación_Usuario </b> Actualizacion generica en caso de
 	 * exito
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param e
 	 * @param logSecUser
@@ -106,13 +103,13 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 	}
 
 	/**
-	 * 
+	 *
 	 * <p>
 	 * <b> CU001_Seguridad_Creación_Usuario </b> Obtiene el nombre el servicio
 	 * (SecurityActionEnum) a desde del HttpServletRequest, si no lo cuengra retorna
 	 * NOT_FOUND
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param request
 	 * @return
@@ -136,7 +133,7 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 	 * <p>
 	 * <b> Util </b> Persistencia de log para una solicitud exitosa.
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param httpEstatus
 	 * @param logSec
@@ -146,12 +143,12 @@ public class ApiRestSecurityHelper extends ApiRestHelper {
 		setLogSecuritySuccesfull(httpEstatus, logSec);
 		logSecurityRepo.save(logSec);
 	}
-	
+
 	/**
 	 * <p>
 	 * <b> General: Paginación. </b> Obtiene el numero de pagina.
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param pageable
 	 * @return

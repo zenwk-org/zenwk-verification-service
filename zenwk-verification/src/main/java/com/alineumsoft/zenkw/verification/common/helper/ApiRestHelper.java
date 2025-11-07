@@ -24,7 +24,7 @@ public class ApiRestHelper {
    * <p>
    * <b> General </b> Escribe el log de la peticion cuando existe un request body
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param inDTO
    * @param request
@@ -39,7 +39,7 @@ public class ApiRestHelper {
    * <p>
    * <b>General</b> Obtener Json, oculta datos sensibles con el password
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param inDTO
    * @param objectMapper
@@ -72,7 +72,7 @@ public class ApiRestHelper {
    * <p>
    * <b> General </b> Escribe el log de la peticion cuando NO existe un request body
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param modUserInDTO
    * @param request
@@ -87,7 +87,7 @@ public class ApiRestHelper {
    * <p>
    * <b> Performance </b> this.logRequest()
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    */
@@ -101,7 +101,7 @@ public class ApiRestHelper {
    * <b> General </b> maneja de acuerdo a una runtimeException que que excpecion custom corresponde:
    * tecnica o funcional
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param <T>
    * @param e
@@ -122,7 +122,7 @@ public class ApiRestHelper {
    * del cliente original que realiza una solicitud a traves de un servidor proxy o balanceador de
    * carga.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @return
@@ -144,7 +144,7 @@ public class ApiRestHelper {
    * <b> General </b> Encabezado HTTP para identificar informacion sobre el agente que envia la
    * solicitud
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param request
    * @return
@@ -158,7 +158,7 @@ public class ApiRestHelper {
    * <p>
    * <b> General </b> Tiempo de duración de la solicitud en segundos formateado a dos decimales
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @return
    */

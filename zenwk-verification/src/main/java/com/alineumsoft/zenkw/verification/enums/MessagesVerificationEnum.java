@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
  * <p>
  * Enum para los mensajes de verificación del usuario en el sistema.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class MessagesVerification

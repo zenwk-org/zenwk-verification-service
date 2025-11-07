@@ -17,7 +17,7 @@ public class MessageSourceAccessorComponent {
 	 * <p>
 	 * <b> Util </b> Constructor
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
 	 * @param messageSource
 	 */
@@ -29,7 +29,7 @@ public class MessageSourceAccessorComponent {
 	 * <p>
 	 * <b> Util </b> Obtener mensaje con internacionalizacion
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param key
 	 * @return
@@ -43,7 +43,7 @@ public class MessageSourceAccessorComponent {
 	 * <b> Util</b> Obtiene un mensaje formateado basado en una clave de mensaje y
 	 * parámetros opcionales.
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
 	 * @param key
 	 * @param params

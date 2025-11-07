@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
  * <p>
  * Este servicio escuchará la cola de RabbitMQ y enviará el correo
  * </p>
- * 
+ *
  * @authxor <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class EmailConsumerService
@@ -37,12 +37,12 @@ public class EmailConsumerService {
   private final TemplateEngine templateEngine;
 
   /**
-   * 
+   *
    * <p>
    * <b> CU001_Seguridad_Creacion_Usuario </b> Listener que escuchará la cola de rabbit mq y enviará
    * el correo
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @throws MessagingException

@@ -14,7 +14,7 @@ public class TechnicalException extends CoreException {
 	 * <p>
 	 * <b> General </b> TechnicalException
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
 	 * @param <T>
 	 * @param message

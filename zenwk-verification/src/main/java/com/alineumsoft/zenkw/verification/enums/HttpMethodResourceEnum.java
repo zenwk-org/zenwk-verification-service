@@ -1,7 +1,6 @@
 package com.alineumsoft.zenkw.verification.enums;
 
 import org.springframework.http.HttpMethod;
-
 import lombok.Getter;
 
 /**
@@ -9,7 +8,7 @@ import lombok.Getter;
  * Enum que define los recursos expuestos y sus metodos http para el api de
  * seguridad a ser usado en RBAC definido.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class HttpMethodResourceEnum
@@ -34,7 +33,7 @@ public enum HttpMethodResourceEnum {
 	 * <p>
 	 * <b> Constructor </b>
 	 * </p>
-	 * 
+	 *
 	 * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
 	 * @param method
 	 * @param resource

@@ -19,7 +19,7 @@ public class UserUtilService {
    * <p>
    * <b> CU004_Restablecer contraseña </b> Recupera el username desde el email.
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param email
    * @return

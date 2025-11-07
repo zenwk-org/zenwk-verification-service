@@ -4,7 +4,7 @@ package com.alineumsoft.zenkw.verification.common.constants;
  * <p>
  * Constantes utilizadas en la autenticacion y autorizacion
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project commons-api
  * @class AuthConfig

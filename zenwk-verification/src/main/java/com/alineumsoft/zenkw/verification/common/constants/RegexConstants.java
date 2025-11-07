@@ -4,7 +4,7 @@ package com.alineumsoft.zenkw.verification.common.constants;
  * <p>
  * Expresiones regulares comunes
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project security-zenwk
  * @class RegexConstants

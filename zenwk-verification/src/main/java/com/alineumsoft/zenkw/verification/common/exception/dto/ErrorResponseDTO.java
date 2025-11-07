@@ -1,7 +1,6 @@
 package com.alineumsoft.zenkw.verification.common.exception.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -15,12 +14,12 @@ import lombok.Data;
 public class ErrorResponseDTO {
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String field;
-	
+
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String code;
 
 	private String error;
-	
+
 	@JsonInclude(JsonInclude.Include.NON_NULL)
 	private String timestamp;
 }

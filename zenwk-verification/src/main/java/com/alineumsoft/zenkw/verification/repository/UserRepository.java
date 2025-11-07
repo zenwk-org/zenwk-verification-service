@@ -31,6 +31,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
    * @return
    * @see org.springframework.data.repository.CrudRepository#findById(java.lang.Object)
    */
+  @Override
   public Optional<User> findById(Long idUser);
 
   /**
@@ -39,6 +40,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
    * @return
    * @see org.springframework.data.repository.CrudRepository#existsById(java.lang.Object)
    */
+  @Override
   public boolean existsById(Long idUser);
 
   /**
@@ -46,7 +48,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
    * <b> CU001_Seguridad_Creacion_Usuario </b> JPQL para la busqueda de un usuario a partir del id
    * de la persona
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param idPerson
    * @return
@@ -59,7 +61,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
    * <b> CU001_Seguridad_Creacion_Usuario </b> JPQL para la busqueda del id de persona con el id del
    * usuario
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param idPerson
    * @return
@@ -71,7 +73,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
    * <p>
    * <b> CU001_Seguridad_Creacion_Usuario </b> Valida si un usuario ya existe para los campos:
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param username
    * @param email
@@ -80,11 +82,11 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
   public boolean existsByUsernameAndEmail(String username, String email);
 
   /**
-   * 
+   *
    * <p>
    * <b> CU001_Seguridad_Creacion_Usuario </b> Recupera un usuario por el username
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param username
    * @return
@@ -92,11 +94,11 @@ public interface UserRepository extends JpaRepository<User, Long>, CrudRepositor
   public Optional<User> findByUsername(String username);
 
   /**
-   * 
+   *
    * <p>
    * <b> CU001_Seguridad_Creacion_Usuario </b> Recupera un usuario por el email
    * </p>
-   * 
+   *
    * @author <a href="alineumsoft@gmail.com">C. Alegria</a>
    * @param username
    * @return

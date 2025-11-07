@@ -1,7 +1,6 @@
 package com.alineumsoft.zenkw.verification.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-
 import com.alineumsoft.zenkw.verification.entity.LogSecurity;
 
 /**

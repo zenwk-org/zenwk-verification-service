@@ -7,7 +7,7 @@ import lombok.Getter;
  * <p>
  * Enum para los campos de la entidad persona.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project SecurityUser
  * @class UserEnum

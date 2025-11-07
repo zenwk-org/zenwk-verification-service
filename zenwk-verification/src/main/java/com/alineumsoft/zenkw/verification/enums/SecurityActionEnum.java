@@ -6,7 +6,7 @@ import lombok.Getter;
  * <p>
  * Enum que representa las acciones de seguridad en el sistema.
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project verification-zenwk
  * @class ServiceNameEnum
@@ -35,7 +35,7 @@ public enum SecurityActionEnum {
    * <p>
    * <b> Constructor </b>
    * </p>
-   * 
+   *
    * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
    * @param code
    */

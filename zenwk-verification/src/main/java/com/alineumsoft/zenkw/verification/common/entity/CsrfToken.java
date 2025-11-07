@@ -15,7 +15,7 @@ import lombok.NoArgsConstructor;
  * <p>
  * Tabla que almacena los tokens de verficación para proteger la autentiación de ataques crsf
  * </p>
- * 
+ *
  * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
  * @project zenwk-verification
  * @class CsrfToken
@@ -67,11 +67,11 @@ public class CsrfToken {
   private String createUser;
 
   /**
-   * 
+   *
    * <p>
    * <b> CU00X_Gestionar protección contra ataques CSRF </b> Constructor
    * </p>
-   * 
+   *
    * @author <a href="mailto:alineumsoft@gmail.com">C. Alegria</a>
    * @param dto
    * @param username
