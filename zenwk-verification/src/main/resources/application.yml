@@ -9,7 +9,7 @@ server:
     key-alias: ${SSL_SERVER_ALIAS:zenwk-local}
 
 cors:
-  allowed-origins: ${CORS_AUTH_ALLOWED_ORIGINS}
+  allowed-origins: ${CORS_AUTH_ALLOWED_ORIGINS:http://localhost:3000,https://localhost:3001}
 
 spring:
   application:
