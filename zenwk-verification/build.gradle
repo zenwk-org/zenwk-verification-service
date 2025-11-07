@@ -1,0 +1,64 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.3'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.alineumsoft.zenkw.verification'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	
+	runtimeOnly 'org.postgresql:postgresql'
+	
+	//
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-web-services'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//Se ver como se elimina dado que este microservicios no gestiona las autorizaciones'
+	implementation 'org.springframework.boot:spring-boot-starter-actuator'
+	//Validaciones a nivel de DTO
+	implementation 'org.hibernate.validator:hibernate-validator'
+	// Spring Boot Starter AMQP (RabbitMQ)
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	// Spring Boot Starter Mail
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+	// Jackson serialización
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+	// Para plantillas HTML
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' 
+	// Spring Cloud Config Client
+	implementation 'org.springframework.cloud:spring-cloud-starter-config' 
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:2024.0.0"
+    }
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

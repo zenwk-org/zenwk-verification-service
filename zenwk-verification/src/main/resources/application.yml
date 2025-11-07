@@ -1,0 +1,51 @@
+# Configuración de servidor (SSL):
+server:
+  port: ${SERVER_PORT:8088}
+  ssl:
+    enabled: true
+    key-store: ${KEY_STORE:classpath:http://localhost:6600/keystore/dev/zenwk_dev.keystore}
+    key-store-password: ${SSL_KEY_STORE_PASSWORD:123456}
+    key-password: ${SSL_KEY_PASSWORD:123456}
+    key-alias: ${SSL_SERVER_ALIAS:zenwk-local}
+
+cors:
+  allowed-origins: ${CORS_AUTH_ALLOWED_ORIGINS}
+
+spring:
+  application:
+    name: verification-zenwk
+  config:
+    import: ${SPRING_CONFIG_COMMON_APPLICATION:optional:configserver:http://localhost:8086}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:rabbitmq}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_DEFAULT_USER:guest}
+    password: ${RABBITMQ_DEFAULT_PASS:guest}
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:alineumsoft@gmail.com}
+    password: ${MAIL_PASS:bldaupihvowyzhek}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+
+validation:
+  regex:
+    allowed-url: "${ALLOWED_URLS:^(|https?:\\/\\/(localhost|([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,})(:\\d+)?(\\/[^\\s]*)?)$}"
+app:
+  datasource:
+    hikari:
+      jdbc-url: ${DB_JDBC_URL:jdbc:postgresql://localhost:5432/zenwk}
+      username: ${DB_USERNAME:calegria}
+      password: ${DB_PASSWORD:calegria}
+      driver-class-name: org.postgresql.Driver
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      max-lifetime: 1800000
+      connection-timeout: 30000
