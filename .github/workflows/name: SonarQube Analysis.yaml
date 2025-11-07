@@ -20,6 +20,7 @@ jobs:
           java-version: 17
           distribution: "temurin" # Alternative distribution options are available
       - name: Grant execute permission for Gradle wrapper
+        working-directory: ./zenwk-verification
         run: chmod +x gradlew
       - name: Cache SonarQube packages
         uses: actions/cache@v4
@@ -33,6 +34,7 @@ jobs:
           path: ~/.gradle/caches
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle') }}
           restore-keys: ${{ runner.os }}-gradle
+
       - name: Build and analyze
         working-directory: ./zenwk-verification
         env:
