@@ -1,24 +1,141 @@
-# Compiled class file
+###  Java y Spring Boot ###
+# Compiled class files
 *.class
+*.jar
+*.war
+*.ear
+*.nar
 
-# Log file
+# Logs
 *.log
 
-# BlueJ files
+# BlueJ
 *.ctxt
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
-*.jar
-*.war
-*.nar
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+# Virtual machine crash logs
 hs_err_pid*
 replay_pid*
+
+# Directorios de build / output
+/build/
+/target/
+/out/
+/bin/
+/classes/
+
+# Gradle
+.gradle/
+**/build/
+!gradle/wrapper/gradle-wrapper.jar
+gradle-app.setting
+.gradle-cache/
+.gradle-local/
+
+# IntelliJ IDEA / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Eclipse
+.project
+.classpath
+.copilot/
+.settings/
+.apt_generated/
+.factorypath
+
+# VS Code
+.vscode/
+.history/
+
+# Logs de Spring Boot
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+
+### Docker ###
+docker-compose.override.yml
+.env
+.env.*
+.docker/
+**/Dockerfile~
+**/docker-compose.yml~
+
+###  SonarQube ###
+.sonar/
+.scannerwork/
+report-task.txt
+
+###  Test y Coverage ###
+# JUnit / Jacoco
+test-output/
+jacoco.exec
+jacoco-report.xml
+/site/
+*.lcov
+coverage/
+coverage-final.json
+
+# Archivos de reports temporales
+*.tmp
+*.bak
+
+###  Archivos del sistema ###
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+### 🧩 Node / Frontend (por si hay UI embebido o React) ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+dist/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+pnpm-lock.yaml
+
+###  Otros ###
+# Archivos sensibles
+*.key
+*.pem
+*.p12
+*.crt
+*.cert
+*.csr
+
+# Credenciales o configuraciones locales
+local.properties
+application-*.yml
+application-*.properties
+config/
+tmp/
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE temporales
+*.orig
+*.rej
