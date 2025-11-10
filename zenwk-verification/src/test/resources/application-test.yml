@@ -15,3 +15,9 @@ spring:
     host: disabled
   mail:
     host: disabled
+
+logging:
+  level:
+    org.hibernate.SQL: debug
+    org.hibernate.type.descriptor.sql.BasicBinder: trace
+    org.springframework.jdbc.datasource.init.ScriptUtils: debug
