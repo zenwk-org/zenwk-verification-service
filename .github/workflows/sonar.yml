@@ -13,4 +13,5 @@ jobs:
     with:
       projectKey: ZenWkZen_zenwk-verification
       organization: zenwk
-    secrets: inherit
+    secrets:
+      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
