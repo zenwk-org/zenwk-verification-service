@@ -1,15 +1,16 @@
 name: SonarCloud
 
 on:
+  workflow_dispatch:  # permite ejecución manual
   push:
     branches: [main]
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch:   #Habilita ejecución manual desde Actions
 
 jobs:
   sonar:
-    uses: zenwk-org/infra-zenwk/.github/workflows/sonarcloud.yml@main
+    uses: zenwk-org/zenwk-infra/.github/workflows/sonarcloud.yml@main
     with:
-      working-directory: ./zenwk-verification
+      projectKey: ZenWkZen_zenwk-verification
+      organization: zenwk
     secrets: inherit
