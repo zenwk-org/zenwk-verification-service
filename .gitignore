@@ -8,6 +8,7 @@
 
 # Logs
 *.log
+*/logs/*
 
 # BlueJ
 *.ctxt
@@ -129,7 +130,7 @@ pnpm-lock.yaml
 local.properties
 # application-*.yml
 application-*.properties
-config/
+#config/
 tmp/
 .env.local
 .env.development.local
