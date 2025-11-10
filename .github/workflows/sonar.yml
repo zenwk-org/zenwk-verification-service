@@ -1,7 +1,7 @@
 name: SonarCloud
 
 on:
-  workflow_dispatch:  # permite ejecución manual
+  workflow_dispatch: # permite ejecución manual
   push:
     branches: [main]
   pull_request:
