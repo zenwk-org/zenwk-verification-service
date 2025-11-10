@@ -59,7 +59,7 @@ dependencyManagement {
     }
 }
 
-// Configuración sonar.
+
 sonar {
   properties {
     property "sonar.projectKey", "ZenWkZen_zenwk-verification-service"
