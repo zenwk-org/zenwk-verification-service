@@ -9,7 +9,7 @@ on:
 
 jobs:
   sonar:
-    uses: ZenWkZen/infra-zenwk/.github/workflows/sonarcloud.yml@main
+    uses: zenwk-org/infra-zenwk/.github/workflows/sonarcloud.yml@main
     with:
       working-directory: ./zenwk-verification
     secrets: inherit
