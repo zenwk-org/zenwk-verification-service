@@ -47,7 +47,7 @@ class MessageSourceAccessorComponentTest {
   @Test
   @DisplayName("Debe obtener mensaje desde el MessageSource (sin parámetros)")
   void shouldGetMessageWithoutParams() {
-    Locale locale = Locale.ENGLISH;
+    Locale locale = Locale.getDefault();
     LocaleContextHolder.setLocale(locale);
 
     when(messageSource.getMessage(eq("test.key"), isNull(), eq(locale))).thenReturn("Test Message");

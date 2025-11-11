@@ -3,6 +3,7 @@ plugins {
 	id 'org.springframework.boot' version '3.4.3'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id "org.sonarqube" version "7.0.1.6134"
+	id 'jacoco'
 }
 
 group = 'com.alineumsoft.zenkw.verification'
@@ -53,6 +54,8 @@ dependencies {
 	// Configuración  h2 para pu 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'com.h2database:h2'
+    
+	testImplementation 'org.mockito:mockito-core'
 }
 
 
@@ -68,6 +71,8 @@ sonar {
   properties {
     property "sonar.projectKey", "ZenWkZen_zenwk-verification-service"
     property "sonar.organization", "zenwk"
+    property "sonar.junit.reportPaths", "build/test-results/test"
+    property "sonar.jacoco.reportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
   }
 }
 
@@ -75,6 +80,15 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+jacocoTestCoverageVerification {
+    violationRules {
+        rule {
+            limit {
+                minimum = 0.80
+            }
+        }
+    }
+}
 
 
 test {
@@ -89,3 +103,7 @@ test {
     // outputs.upToDateWhen { false }
 }
 
+
+jacoco {
+    toolVersion = "0.8.11"
+}
