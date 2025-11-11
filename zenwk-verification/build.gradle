@@ -80,17 +80,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                minimum = 0.80
-            }
-        }
-    }
-}
-
-
 test {
     useJUnitPlatform()
     testLogging {
@@ -104,13 +93,5 @@ test {
 }
 
 
-jacoco {
-    toolVersion = "0.8.11"
-}
+apply from: "${rootDir}/../../infra-zenwk/common/gradle/jacoco.gradle"
 
-jacocoTestReport {
-    reports {
-        xml.required = true
-        html.required = true
-    }
-}

@@ -34,7 +34,14 @@ public class MessageSourceAccessorComponent {
    * </p>
    */
   public static String getMessage(String key) {
-    return MessageSourceHolder.get().getMessage(key, null, LocaleContextHolder.getLocale());
+    try {
+      return MessageSourceHolder.get().getMessage(key, null, LocaleContextHolder.getLocale());
+    } catch (Exception e) {
+      return key; // fallback seguro
+    }
+
+
+
   }
 
   /**
@@ -43,7 +50,12 @@ public class MessageSourceAccessorComponent {
    * </p>
    */
   public static String getMessage(String key, String... params) {
-    return MessageSourceHolder.get().getMessage(key, params, LocaleContextHolder.getLocale());
+    try {
+      return MessageSourceHolder.get().getMessage(key, params, LocaleContextHolder.getLocale());
+    } catch (Exception e) {
+      return key; // fallback seguro
+    }
+
   }
 
   /**
