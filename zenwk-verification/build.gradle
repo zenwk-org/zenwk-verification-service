@@ -72,7 +72,7 @@ sonar {
     property "sonar.projectKey", "ZenWkZen_zenwk-verification-service"
     property "sonar.organization", "zenwk"
     property "sonar.junit.reportPaths", "build/test-results/test"
-    property "sonar.jacoco.reportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
+    property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
   }
 }
 
