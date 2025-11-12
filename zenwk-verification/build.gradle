@@ -66,16 +66,6 @@ dependencyManagement {
     }
 }
 
-
-	/*sonar {
-	  properties {
-	    property "sonar.projectKey", "ZenWkZen_zenwk-verification-service"
-	    property "sonar.organization", "zenwk"
-	    property "sonar.junit.reportPaths", "build/test-results/test"
-	    property "sonar.coverage.jacoco.xmlReportPaths", "build/reports/jacoco/test/jacocoTestReport.xml"
-	  }
-	}*/
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
@@ -84,8 +74,6 @@ test {
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
-        // showStandardStreams = true
-        // null muestra mensajes mas largos
         exceptionFormat = 'short'
     }
     // Fuerza siempre la ejecución de las pruebas
