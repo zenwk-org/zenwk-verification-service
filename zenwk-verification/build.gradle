@@ -92,7 +92,7 @@ test {
     // outputs.upToDateWhen { false }
 }
 
-// Configuración local/git-actions.
+// Configuración local/git-actions
 def commonJacoco = file("${rootDir}/../../zenwk-workflows/common/gradle/jacoco.gradle")
 if (!commonJacoco.exists()) {
     commonJacoco = file("${rootDir}/gradle/jacoco.gradle")
