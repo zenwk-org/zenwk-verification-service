@@ -108,7 +108,7 @@ public class VerificationService extends ApiRestSecurityHelper {
   private TokenDTO generateTokenDTO(String email) {
     TokenDTO dto = new TokenDTO();
     dto.setEmail(email);
-    dto.setCode(CodeGenerator.generateCode(Constants.TOKEN_CODE_ZISE));
+    dto.setCode(CodeGenerator.generateNumericCode(Constants.TOKEN_CODE_ZISE));
     dto.setHashCode(CryptoUtil.encryptCode(dto.getCode()));
     dto.setUuid(CodeGenerator.generateUUID());
     dto.setHashUuid(CryptoUtil.encryptCode(dto.getUuid()));

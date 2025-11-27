@@ -56,4 +56,20 @@ public class CodeGenerator {
 
   }
 
+  /**
+   * Genera un código numérico seguro de longitud 'size'.
+   * 
+   * @param size longitud del código
+   * @return código compuesto solo por dígitos
+   */
+  public static String generateNumericCode(int size) {
+    StringBuilder sb = new StringBuilder(size);
+    for (int i = 0; i < size; i++) {
+      int digit = random.nextInt(10); // 0-9
+      sb.append(digit);
+    }
+    return sb.toString();
+  }
+
+
 }
